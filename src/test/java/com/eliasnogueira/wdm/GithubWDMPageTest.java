@@ -65,7 +65,6 @@ class GithubWDMPageTest {
         GitHubPage page = new GitHubPage(driver);
 
         assertEquals("webdrivermanager", page.getProjectText());
-//        assertEquals(URL, page.getProjectReferenceLink());
-        assertEquals(URL, "not equals");
+        assertEquals(URL, page.getProjectReferenceLink());
     }
 }
