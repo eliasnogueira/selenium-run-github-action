@@ -19,6 +19,7 @@
         <webdrivermanager.version>5.6.3</webdrivermanager.version>
         <selenium.version>4.16.1</selenium.version>
         <junit.version>5.10.1</junit.version>
+        <owner.version>1.0.12</owner.version>
 
         <!-- enforce security dependency -->
         <jackson-databind.version>2.16.1</jackson-databind.version>
@@ -48,6 +49,12 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aeonbits.owner</groupId>
+            <artifactId>owner</artifactId>
+            <version>${owner.version}</version>
         </dependency>
 
         <!-- enforce security dependency -->

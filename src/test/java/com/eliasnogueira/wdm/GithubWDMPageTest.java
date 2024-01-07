@@ -23,6 +23,7 @@
  */
 package com.eliasnogueira.wdm;
 
+import com.eliasnogueira.wdm.config.ConfigurationManager;
 import com.eliasnogueira.wdm.po.GitHubPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
@@ -44,11 +45,15 @@ class GithubWDMPageTest {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new");
 
-        // necessary arguments to run the headless mode without admin permission
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+        // control, via the general.properties if the execution will be done via the headless mode
+        if (ConfigurationManager.getConfiguration().headless()) {
+            options.addArguments("--headless=new");
+
+            // necessary arguments to run the headless mode without admin permission in a container
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+        }
 
         driver = new ChromeDriver(options);
 

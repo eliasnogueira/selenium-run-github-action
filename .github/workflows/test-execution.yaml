@@ -37,4 +37,4 @@ jobs:
         run: mvn -q compile --file pom.xml
 
       - name: Run Test
-        run: mvn -q test
+        run: mvn -q test -Dheadless=true
