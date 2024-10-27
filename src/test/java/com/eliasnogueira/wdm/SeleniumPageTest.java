@@ -24,8 +24,7 @@
 package com.eliasnogueira.wdm;
 
 import com.eliasnogueira.wdm.config.ConfigurationManager;
-import com.eliasnogueira.wdm.po.GitHubPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.eliasnogueira.wdm.po.SeleniumPage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -35,15 +34,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class GithubWDMPageTest {
+class SeleniumPageTest {
 
     private static WebDriver driver;
-    private static final String URL = "https://github.com/bonigarcia/webdrivermanager";
+    private static final String URL = "https://selenium.dev";
 
     @BeforeAll
     static void webdrivermanagerSetup() {
-        WebDriverManager.chromedriver().setup();
-
         ChromeOptions options = new ChromeOptions();
 
         // control, via the general.properties if the execution will be done via the headless mode
@@ -67,9 +64,7 @@ class GithubWDMPageTest {
 
     @Test
     void checkDescription() {
-        GitHubPage page = new GitHubPage(driver);
-
-        assertEquals("webdrivermanager", page.getProjectText());
-        assertEquals(URL, page.getProjectReferenceLink());
+        new SeleniumPage(driver);
+        assertEquals("Selenium", driver.getTitle());
     }
 }

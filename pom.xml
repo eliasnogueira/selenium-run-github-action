@@ -6,38 +6,21 @@
 
     <groupId>org.example</groupId>
     <artifactId>selenium-run-github-action</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1</version>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <java.version>23</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
-        <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>3.5.1</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
 
-        <webdrivermanager.version>5.6.3</webdrivermanager.version>
-        <selenium.version>4.16.1</selenium.version>
-        <junit.version>5.10.1</junit.version>
+        <selenium.version>4.25.0</selenium.version>
+        <junit.version>5.11.3</junit.version>
         <owner.version>1.0.12</owner.version>
-
-        <!-- enforce security dependency -->
-        <jackson-databind.version>2.16.1</jackson-databind.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>${webdrivermanager.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.fasterxml.jackson.core</groupId>
-                    <artifactId>jackson-databind</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -56,14 +39,6 @@
             <artifactId>owner</artifactId>
             <version>${owner.version}</version>
         </dependency>
-
-        <!-- enforce security dependency -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson-databind.version}</version>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -79,8 +54,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
         </plugins>
